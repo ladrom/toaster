@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --colorSuccess: #105719;
+  --colorDanger: #af2020;
+  --colorBackground: #060764;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--colorBackground);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.title {
+  font-family: MuseoModerno, sans-serif;
+  color: #e85f09;
+  font-size: 48px;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.buttons > .btn {
+  margin-left: 10px;
+}
+
+.btn {
+  color: aliceblue;
+  background-color: var(--colorDanger);
+  border: 1px solid black;
+  cursor: pointer;
+  font-size: 32px;
+  padding: 10px 15px;
+  border-radius: 16px;
+  box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
+}
+
+.btn--success {
+  background-color: var(--colorSuccess);
+}
+
+.btn:active {
+  translate: 0 3px;
+}
+
+.messages {
+  position: absolute;
+  width: 250px;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+}
+
+.msg {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border-radius: 16px;
+  color: aliceblue;
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
+  margin-block: 15px;
+  animation: cardFadeIn 1s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+}
+
+.msg--error {
+  background-color: var(--colorDanger);
+}
+
+.msg--success {
+  background-color: var(--colorSuccess);
+}
+
+.msg--delete {
+  animation: cardFadeOut 2s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+}
+
+.bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 12px;
+
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  animation: barFilling 1s linear forwards 1s;
+}
+
+.bar--success {
+  background: linear-gradient(90deg, rgba(115,242,130,1) 0%, rgba(124,124,138,1) 35%, rgba(37,244,61,1) 100%);
+}
+
+.bar--error {
+  background: linear-gradient(90deg, rgba(218,122,122,1) 0%, rgba(124,124,138,1) 35%, rgba(103,4,4,1) 100%);
+}
+
+@keyframes barFilling {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes cardFadeIn {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes cardFadeOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
