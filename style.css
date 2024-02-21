@@ -24,7 +24,7 @@ body {
 }
 
 .container {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -137,5 +137,40 @@ body {
   }
   100% {
     transform: translateX(120%);
+  }
+}
+
+@media screen and (max-width: 768px){
+  .container {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px;
+  }
+  .title {
+    margin: 0 10px;
+    font-size: 32px;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .btn {
+    font-size: 20px;
+  }
+
+  .buttons > .btn {
+    margin-left: 0;
+  }
+
+  .messages {
+    max-height: 95dvh;
+    position: relative;
+    align-self: flex-end;
+    flex-wrap: wrap-reverse;
   }
 }
